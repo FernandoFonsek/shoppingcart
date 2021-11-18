@@ -1,13 +1,39 @@
-import React, {createContext } from "react";
+import {createContext, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 // create context
 
 const DarkModeContext = createContext()
 
-
 const DarkModeProvider = ({children})=>{
+    const {pathname} = useLocation();
 
-    return <DarkModeContext.Provider>
+
+    const [darkMode, setDarkMode] = useState(false)
+    const [contador, setContador] = useState(0);
+
+    //funciones
+    const handleDarkMode = () => setDarkMode(!darkMode)
+    const handleCount = (pathname) => {
+        if(pathname === "/home"){
+            setContador(contador - 1)
+        }else if(pathname === "/store"){
+            setContador(contador + 1)
+        }
+    
+        }
+
+console.log(contador)
+
+    const data = {
+        darkMode,
+        handleDarkMode,
+        pathname,
+        handleCount,
+        contador
+    }
+
+    return <DarkModeContext.Provider value={data} >
         {children}
         </DarkModeContext.Provider>
 }

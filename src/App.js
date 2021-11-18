@@ -1,15 +1,28 @@
 import {
   BrowserRouter, 
-  Route, 
-  Routes} from "react-router-dom"
+  Routes,
+  Route
+  } from "react-router-dom"
+  
+  //import pages
+import Home from "./pages/Home";
+import Store from "./pages/Store";
+
+import {DarkModeProvider} from "./components/context/DarkModeContext"
+import {CartProvider} from "./components/context/CartContext/CartContext"
 
 
 function App() {
   return (
     <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<Home />}/>
-    </Routes>
+     <CartProvider>
+        <DarkModeProvider>
+          <Routes>
+            <Route path="/home" element={<Home/>}/>
+            <Route path="/store" element={<Store/>}/>
+          </Routes>
+        </DarkModeProvider>
+      </CartProvider>
     </BrowserRouter>
   );
 }
