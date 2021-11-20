@@ -10,20 +10,22 @@ import Store from "./pages/Store";
 
 import {DarkModeProvider} from "./components/context/DarkModeContext"
 import {CartProvider} from "./components/context/CartContext/CartContext"
+import SaveCarts from "./pages/SaveCarts";
 
 
 function App() {
   return (
-    <BrowserRouter>
-     <CartProvider>
-        <DarkModeProvider>
+    <CartProvider>
+      <DarkModeProvider>
+        <BrowserRouter>
           <Routes>
             <Route path="/home" element={<Home/>}/>
             <Route path="/store" element={<Store/>}/>
+            <Route path="/save" element={<SaveCarts/>}/>
           </Routes>
-        </DarkModeProvider>
-      </CartProvider>
-    </BrowserRouter>
+        </BrowserRouter>
+      </DarkModeProvider>
+    </CartProvider>
   );
 }
 

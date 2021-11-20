@@ -27,7 +27,9 @@ const Header =() => {
         <div className="flex items-center text-center">  
             <FontAwesomeIcon className="-mr-2" icon={faCartArrowDown} />
             <div className="bg-balck pb-6">
-                <h5 className={darkMode ? "bg-blueLight text-balck rounded-full w-6 h-6 text-center text-xs pt-1":"bg-pink text-balck rounded-full w-6 h-6 text-center text-xs pt-1"}>{contador}</h5>
+                <h5 className={darkMode ? "bg-blueLight text-balck rounded-full w-6 h-6 text-center text-xs pt-1":"bg-pink text-balck rounded-full w-6 h-6 text-center text-xs pt-1"}>
+                    {contador}
+                </h5>
             </div>   
         </div>
     </div>

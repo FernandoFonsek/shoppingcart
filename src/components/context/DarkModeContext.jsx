@@ -1,12 +1,9 @@
 import {createContext, useState } from "react";
-import { useLocation } from "react-router-dom";
 
 // create context
 
 const DarkModeContext = createContext()
-
 const DarkModeProvider = ({children})=>{
-    const {pathname} = useLocation();
 
 
     const [darkMode, setDarkMode] = useState(false)
@@ -28,7 +25,6 @@ console.log(contador)
     const data = {
         darkMode,
         handleDarkMode,
-        pathname,
         handleCount,
         contador
     }
