@@ -59,47 +59,46 @@ const inicialState = {
 ],
 cart: [],
 total: 0,
-cantidad:[]
+cantidad:[],
 }
-
 const reducer = (state, action) =>{
-    
-console.log(state.cantidad)
-
     switch (action.type) {
         case "ADD_TO_CART":
-            console.log(action.payload.id)
-            return {
-                // array1.includes(2)
+            let itemInCart = state.cart.find(item => item.id === action.payload.id)
+            return itemInCart ? {
                 ...state,
-                cart:[...state.cart, state.cantidad.includes(action.payload.id) ? {}: action.payload  ],
+                cart: state.cart.map(item => item.id === action.payload.id ? {...item, amount: item.amount ++ }: item),
                 total: state.total + action.payload.price,
-                cantidad:[...state.cantidad.sort(), action.payload.id]
-                // cantidad:[...state.cantidad, Object.defineProperty(canti, `${action.payload.id}`, {value: 1, writable : true})]
-            }
-             
-                // cantidad: state.cantidad = Object.assign(  action.payload.und )
-            
-        case "REMOVE_FROM_CART":
-            console.log(action.payload.und)
-            console.log(action.payload.id)
-            console.log(state.cantidad)
-            
-            return {
+            } :
+            {
+                ...state,
+                cart: [...state.cart, {...action.payload, amount: 1}],
+                total: state.total + action.payload.price,
+            }                       
+        case "REMOVE_ONE_PRODUCT":
+            let itemInCartDelete = state.cart.find(item => item.id === action.payload.id & item.amount > 0 ) 
+            return itemInCartDelete ? {
+                ...state,
+                cart: state.cart.map(item => item.id === action.payload.id ? {...item, amount: item.amount -- }: item),
+                total: state.total - action.payload.price,
+            }: {
                 ...state,
                 cart: state.cart.filter(item => item.id !== action.payload.id),
                 total: state.total - action.payload.price,
-                cantidad: state.cantidad.filter( item => item !== action.payload.id) 
-            };
+            }
+
+        case "REMOVE_FROM_CART":
+        return {
+            ...state,
+            cart: state.cart.filter(item => item.id !== action.payload.id),
+            total: state.total - action.payload.price,
+        }
         default:
             return state;
     }
 }
-
 const CartProvider = ({children}) =>{
-
     const [state, dispatch] = useReducer(reducer, inicialState)
-
 const data ={
     state,
     dispatch
@@ -110,3 +109,8 @@ const data ={
 }
 export {CartProvider}
 export default CartContext;
+
+
+
+
+{/* <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"></link> */}

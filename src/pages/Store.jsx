@@ -60,7 +60,7 @@ const Store = () => {
 // const [total, setTotal] = useState(0)
 
     return(
-        <div className="grid grid-cols-4 bg-blueDark gap-4"> 
+        <div className="grid grid-cols-4 gap-4"> 
             <div className="fixed bg-celeste w-full">
                 <Header/>
             </div>
@@ -87,7 +87,6 @@ const Store = () => {
                     </div>
                 </div>
             </div>
-            <SaveCart/>
         </div>
     )
 }

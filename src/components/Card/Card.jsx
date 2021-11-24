@@ -1,13 +1,15 @@
 import React, {useContext} from "react"
 import DarkModeContext from "../context/DarkModeContext";
 import CartContext from "../context/CartContext/CartContext";
-
+import AcountsContext from "../context/AccountsContext/AcountsContext";
 
 
 const Card = () =>{
 
     const {  contador, handleCount, pathname} = useContext(DarkModeContext)
     const { state, dispatch} = useContext(CartContext)
+    const { stastateAcounts, dispatchAcounts } = useContext(AcountsContext)
+
 
     return(
     

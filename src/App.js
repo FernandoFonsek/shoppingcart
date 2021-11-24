@@ -11,21 +11,24 @@ import Store from "./pages/Store";
 import {DarkModeProvider} from "./components/context/DarkModeContext"
 import {CartProvider} from "./components/context/CartContext/CartContext"
 import SaveCarts from "./pages/SaveCarts";
+import { AcountsProvider } from "./components/context/AccountsContext/AcountsContext";
 
 
 function App() {
   return (
-    <CartProvider>
-      <DarkModeProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/home" element={<Home/>}/>
-            <Route path="/store" element={<Store/>}/>
-            <Route path="/save" element={<SaveCarts/>}/>
-          </Routes>
-        </BrowserRouter>
-      </DarkModeProvider>
-    </CartProvider>
+    <BrowserRouter>
+      <CartProvider>
+        <AcountsProvider>
+          <DarkModeProvider>
+            <Routes>
+              <Route path="/home" element={<Home/>}/>
+              <Route path="/store" element={<Store/>}/>
+              <Route path="/save" element={<SaveCarts/>}/>
+            </Routes>
+          </DarkModeProvider>
+        </AcountsProvider>
+      </CartProvider>
+    </BrowserRouter>
   );
 }
 
