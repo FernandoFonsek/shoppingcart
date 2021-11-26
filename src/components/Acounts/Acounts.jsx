@@ -1,54 +1,53 @@
 import { useContext } from "react";
 // import "../../bootstrap/dist/css/bootstrap.min.css";
 import DataTable from "react-data-table-component"; 
-
 import CartContext from "../context/CartContext/CartContext";
 
-const columns =[
-    {
-        name: 'ID',
-        selector: 'id',
-        sortable: true
-    },
-    {
-        name: 'Product',
-        selector: 'url',
-        sortable: true
-    },
-    {
-        
-        name: "agregar",
-        cell: () => <button onClick={() => alert("hola")}>+</button>,
+
+
+const Acounts = () => {
+    const { state, dispatch} = useContext(CartContext)
+
+    const columns =[
+        {
+            name: 'ID',
+            selector: 'id',
+            sortable: true
+        },
+        {
+            name: 'Product',
+            selector: 'name',
+            sortable: true
+        },
+        {
+            name: "agregar",
+            // cell: () => <button onClick={()=> dispatch({type: "ADD_TO_CART", payload: item })}>+</button>,
+            // onClick={()=> dispatch({type: "ADD_TO_CART", payload: item })}
+            cell: () => <button onClick={() => dispatch({type: "ADD_TO_CART", payload:  'id' })}>+</button>,
+            ignoreRowClick: true,
+            allowOverflow: true,
+            button: true,
+        },
+        {
+        name: "Borrar",
+        cell: () => <button onClick={() => alert("hola")}>-</button>,
         ignoreRowClick: true,
         allowOverflow: true,
         button: true,
-    },
-    {
-    name: "Borrar",
-    cell: () => <button onClick={() => alert("hola")}>-</button>,
-    ignoreRowClick: true,
-    allowOverflow: true,
-    button: true,
-    },
-    {
-        name: 'Cantidad',
-        selector: 'amount',
-    },
-
-]
-
-const Acounts = () => {
-
-    const { state, dispatch} = useContext(CartContext)
-
+        },
+        {
+            name: 'Cantidad',
+            selector: 'amount',
+        },
+    
+    ]
 
     return (
-        <div className="flex-col">
+        <div>
             <DataTable 
             columns={columns}
             data={state?.cart?.map(x=>x)}
             title="Factura"
-
             />
         </div>
     )

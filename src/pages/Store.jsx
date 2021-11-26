@@ -58,40 +58,37 @@ const Store = () => {
 //     ]
 // const [card, setCard] = useState([])
 // const [total, setTotal] = useState(0)
-
     return(
-        <div className="grid grid-cols-4 gap-4"> 
-            <div className="fixed bg-celeste w-full">
+        <div className="grid grid-cols-4 gap-4 bg-blueDark"> 
+            <div className="fixed w-full">
                 <Header/>
             </div>
-            <div className="col-span-4 mt-20 text-center">
+            {/* <div className="col-span-4 mt-20 text-center">
                 <Search/>
-            </div>
-
-            <div className="col-span-4 mt-16 ">
-                <InfoHeader/>
+            </div> */}
+            <div className="col-span-4 ">
+                <div className="bg-footer-texture w-full bg-cover bg-center flex items-center">
+                    <InfoHeader/>
+                </div>
             </div>
             <div className="col-span-4 md:col-span-1 bg-black text-white">
                 <h2>inicio e-comerce de solana</h2>
                 <Link to="/home"><button>ver home</button></Link>
                 <Contador/>
             </div>
-            <div className="col-span-4 md:col-span-3 ">
+            <div className="col-span-4 md:col-span-3">
                 <div className="flex-col">
-                    <div className="bg-celeste mb-4">
+                    <div className="mb-4 bg-celeste">
                         <h2>Filro</h2>
                     </div>
-                    <div className="flex flex-wrap">
+                    <div>
                         <Card/>
- 
-                    </div>
+                    </div>    
                 </div>
             </div>
         </div>
     )
 }
 export default Store;
-
-
 
 // npm i react-router-dom@^5.3.0 react-bootstrap bootstrap@5.1.3
