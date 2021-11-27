@@ -20,7 +20,6 @@ const DarkModeProvider = ({children})=>{
     
         }
 
-console.log(contador)
 
     const data = {
         darkMode,

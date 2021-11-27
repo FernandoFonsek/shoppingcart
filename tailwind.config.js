@@ -5,11 +5,11 @@ module.exports = {
     backgroundColor: {
       'pink': '#CF2BD0',
       'celeste': '#00EBFE',
-      'blueLight': '#01BAD9',//230352
-      // 'blueDark': '#021855',
+      'blueLight': '#01BAD9',
       'blueDark': '#230352',
       'black':'#202035',
-      'black-alpha': 'rgba(0,0,0,0.80)'
+      'black-alpha': 'rgba(0,0,0,0.80)',
+      'green': '#39ff14'
      },
      borderColor: {
       'blue': '#AD95FF',

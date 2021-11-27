@@ -2,14 +2,14 @@ import React from "react";
 
 //svg
 import backrow from "../../assets/backrow.svg"
-import collections from "../../assets/collections.svg"
-import discord from "../../assets/discord.svg"
-import graph from "../../assets/graph.svg"
-import help from "../../assets/help.svg"
-import note from "../../assets/note.svg"
-import stats from "../../assets/stats.svg"
+// import collections from "../../assets/collections.svg"
+// import discord from "../../assets/discord.svg"
+// import graph from "../../assets/graph.svg"
+// import help from "../../assets/help.svg"
+// import note from "../../assets/note.svg"
+// import stats from "../../assets/stats.svg"
 import twitter from "../../assets/twitter.svg"
-import web from "../../assets/web.svg"
+// import web from "../../assets/web.svg"
 
 
 const InfoHeader = () =>{
@@ -88,6 +88,6 @@ const InfoHeader = () =>{
             </span>
         </div>
     </div>
- )   
+ ) 
 }
 export default InfoHeader;

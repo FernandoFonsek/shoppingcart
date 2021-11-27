@@ -9,7 +9,7 @@ const Home = () =>{
     return(
         <>
         <Header/>
-        <h2>inicio e-comerce de solana</h2>
+        <h2 className="drop-shadow-md">inicio e-comerce de solana</h2>
         <Link to="/store"><button>ver store</button></Link>
         <Contador/>
         

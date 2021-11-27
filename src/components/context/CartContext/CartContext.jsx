@@ -1,5 +1,5 @@
 import React, {createContext, useReducer} from "react";
-import { act } from "react-dom/test-utils";
+// import { act } from "react-dom/test-utils";
 // import { act } from "react-dom/test-utils";
 
 //crear el contexto
@@ -147,8 +147,3 @@ const data ={
 }
 export {CartProvider}
 export default CartContext;
-
-
-
-
-{/* <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"></link> */}

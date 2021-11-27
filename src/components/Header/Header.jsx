@@ -3,7 +3,6 @@ import DarkModeContext from "../context/DarkModeContext";
 import CartContext from "../context/CartContext/CartContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartArrowDown } from "@fortawesome/free-solid-svg-icons";
-import stats from "../../assets/stats.svg"
 import help from "../../assets/help.svg"
 
 
@@ -14,30 +13,16 @@ import Search from "../Search/Seach";
 
 const Header =() => {
     const {state}=useContext(CartContext)
-    const {darkMode, handleDarkMode, contador} = useContext(DarkModeContext)
-    console.log(state?.cantidad.sort())
+    const {darkMode, handleDarkMode} = useContext(DarkModeContext)
 
-    let prueba = state?.cantidad.sort()
-    let contado = 1;
-    let valores = []
-    let repetidos = []
-    console.log(valores)
-    console.log(repetidos)
-    for (let i = 0; i < prueba.length; i++) {
-        if(prueba[i+1] === prueba[i]){
-            contado ++;
-        }else{
-            valores.push(prueba[i])
-            repetidos.push(contado)
-            contado = 1;
-        }
-    }
+
+ 
 
     return(
-    <div className={darkMode ? "flex justify-around items-center bg-black-alpha" : "flex justify-around items-center"} >
-        <button onClick={handleDarkMode} className={darkMode ? "hamburger hamburger--emphatic -ml-10 " : "hamburger hamburger--emphatic is-active -ml-10"} type="button">
-            <span className="hamburger-box">
-                <span className="hamburger-inner "></span>
+    <div className={darkMode ? "flex justify-around items-center bg-black-alpha " : "flex justify-around items-center bg-black-alpha"} >
+        <button onClick={handleDarkMode} className={darkMode ? "hamburger hamburger--emphatic -ml-10  bg-celeste rounded-lg p-2" : "hamburger hamburger--emphatic is-active -ml-10 bg-pink rounded-lg  p-2 "} type="button">
+            <span className="hamburger-box ">
+                <span className="hamburger-inner"></span>
             </span>
         </button>
         <div className="flex justify-center items-center">
